@@ -14,6 +14,6 @@ public:
 	double GetfixedPrice();
 	void UseData(double consumed);
 	double GetFreeMB();
-	void SetConsumed(double consumed);
+	double BillingMobileData();
 
 };

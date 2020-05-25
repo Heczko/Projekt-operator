@@ -16,7 +16,7 @@ public:
 	int IsActive();
 	void SetActive(bool active);
 
-	virtual double GetBalance();
+	double GetBalance();
 
 };
 

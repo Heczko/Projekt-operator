@@ -11,19 +11,19 @@ private:
 	double account;
 	static double price;
 	int callTime;
-	MobileData* mData;
-
 
 public:
+	MobileData* mData;
+
 	TariffFixed(int number, int clientId, double fixedFee, int freeMin);
 	TariffFixed(int number, int clientId, double fixedFee, int freeMin, double mDatalimit, double mDataFixedPrice);
 	~TariffFixed();
 
 	void static SetPrice(double price);
 	void MakeCall(int callTime);
+
 	double Billing();
 	void Payment(double ammount);
-	double BillingMobData();
 	double GetBalance();
 
 };

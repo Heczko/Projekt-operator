@@ -49,7 +49,7 @@ double TariffFixed::Billing()
 		res = this->fixedFee + ((double)this->callTime - (double)this->freeMin) * TariffFixed::price;
 	}
 	else res = this->fixedFee;
-	if (this->mData != nullptr) res += BillingMobData();
+	if (this->mData != nullptr) res += this->mData->BillingMobileData();
 	this->callTime = 0;
 	this->account -= res;
 	return res;
@@ -60,12 +60,3 @@ void TariffFixed::Payment(double ammount)
 	this->account += ammount;
 }
 
-double TariffFixed::BillingMobData()
-{
-	if (this->mData != nullptr)
-	{
-		mData->SetConsumed(0);
-		return this->mData->GetfixedPrice();
-	} else
-	return 0.0;
-}

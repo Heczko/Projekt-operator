@@ -56,6 +56,12 @@ int main()
 		tarif2 = o->GetTariffFixed(724777999);
 		printf("initial account: %1.2f\n", tarif2->GetBalance());
 		tarif2->MakeCall(20);
+		if (tarif2->mData != nullptr)
+		{
+			double freeMB = tarif2->mData->GetFreeMB();
+			// nesmi cerpat vic nez freeMB
+			tarif2->mData->UseData(100);
+		}
 		double sum = tarif2->Billing();
 		printf("month bill: %1.2f\n", sum);
 		printf("actual account: %1.2f\n", tarif2->GetBalance());

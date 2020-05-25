@@ -18,8 +18,7 @@ double MobileData::GetfixedPrice()
 
 void MobileData::UseData(double consumed)
 {
-	this->consumed -= consumed;
-	if (this->consumed < 0) this->consumed = 0;
+	this->consumed += consumed;
 }
 
 double MobileData::GetFreeMB()
@@ -27,7 +26,8 @@ double MobileData::GetFreeMB()
 	return (this->limit - this->consumed);
 }
 
-void MobileData::SetConsumed(double consumed)
+double MobileData::BillingMobileData()
 {
-	this->consumed = consumed;
+	this->consumed = 0;
+	return GetfixedPrice();
 }
